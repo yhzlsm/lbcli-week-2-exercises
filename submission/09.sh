@@ -230,7 +230,7 @@ echo "- Payment to $PAYMENT_ADDRESS with amount $VERIFY_PAYMENT BTC"
 echo "- Change to $CHANGE_ADDRESS with amount $VERIFY_CHANGE BTC"
 
 # Final verification
-if [ "$VERIFY_RBF" == "true" ] && [ "$VERIFY_PAYMENT" == "$PAYMENT_BTC" ]; then
+if [ "$VERIFY_RBF" == "true" ] && [ "$VERIFY_PAYMENT" == "$PAYMENT_BTC" ] && [ "$VERIFY_CHANGE" == "$CHANGE_BTC" ]; then
   echo "✅ Transaction looks good! Ready for signing."
 else
   echo "❌ Transaction verification failed! Double-check your transaction."
