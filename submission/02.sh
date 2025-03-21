@@ -1,2 +1,2 @@
 # Create a new Bitcoin address, for receiving change.
-bitcoin-cli -regtest -rpcwallet=btrust getnewaddress "" bech32m
+bitcoin-cli -regtest -rpcwallet=btrustwallet getnewaddress "" bech32m
