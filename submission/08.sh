@@ -17,8 +17,8 @@ utxo_vout_2=$(bitcoin-cli -regtest decoderawtransaction $raw_tx | jq -r '.vout[1
 
 rbf=1
 
-inputs='[{"txid":"'$utxo_txid_1'","vout":'$utxo_vout_1', "sequence": '$rbf'},{"txid":"'$utxo_txid_2'","vout":'$utxo_vout_2',"sequence": '$rbf'}]'
-echo "$inputs"
+inputs='[{"txid":"'$utxo_txid_1'","vout":'$utxo_vout_1', "sequence":'$rbf'},{"txid":"'$utxo_txid_2'","vout":'$utxo_vout_2',"sequence":'$rbf'}]'
+
 outputs='{"'$recipient'":'$amount'}'
 
 rawtransaction=$(bitcoin-cli -regtest createrawtransaction "$inputs" "$outputs")
