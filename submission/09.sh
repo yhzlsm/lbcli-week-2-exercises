@@ -219,10 +219,10 @@ check_cmd "Transaction decoding" "DECODED_TX" "$DECODED_TX"
 VERIFY_RBF=$(echo "$DECODED_TX" | jq -r 'if .vin[0].sequence < 4294967294 then "true" else "false" end')
 check_cmd "RBF verification" "VERIFY_RBF" "$VERIFY_RBF"
 
-VERIFY_PAYMENT=$($DECODED_TX | jq -r ".vout[0].value")
+VERIFY_PAYMENT=$(echo "$DECODED_TX" | jq -r ".vout[0].value")
 check_cmd "Payment verification" "VERIFY_PAYMENT" "$VERIFY_PAYMENT"
 
-VERIFY_CHANGE=$($DECODED_TX | jq -r ".vout[1].value")
+VERIFY_CHANGE=$(echo "$DECODED_TX" | jq -r ".vout[1].value")
 check_cmd "Change verification" "VERIFY_CHANGE" "$VERIFY_CHANGE"
 
 echo "Verification Results:"
